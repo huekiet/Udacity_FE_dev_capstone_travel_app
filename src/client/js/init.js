@@ -115,17 +115,23 @@ async function handleClickCheckEvent() {
   const userInputCityName = city.value;
   const userInputStartDate = startDate.valueAsDate;
 
-  const foundedCity = await (await getCity(userInputCityName)).json();
+  let foundedCity;
+  try {
+    foundedCity = await (await getCity(userInputCityName)).json();
+  } catch(e) {
+    alert("No city was founded!");
+    return;
+  }
   const daysUntilDepart = calculateNumberOfDaysBetweenTwoDates(
     now,
     userInputStartDate
   );
   const weatherForecastRequest = getWeatherForecast(
     daysUntilDepart,
-    foundedCity.latitude,
-    foundedCity.longitude
+    foundedCity.lat,
+    foundedCity.lng
   );
-  const placeImageRequest = getPlaceImage(foundedCity.locality);
+  const placeImageRequest = getPlaceImage(foundedCity.name);
 
   let [weatherForecast, placeImage] = await Promise.all([
     weatherForecastRequest,

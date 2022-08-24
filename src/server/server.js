@@ -3,12 +3,12 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 // Global variables
-const positionURL = "http://api.positionstack.com/v1/forward";
+const geonameURL = "http://api.geonames.org/searchJSON";
 const weatherForecastFutureURL =
   "https://api.weatherbit.io/v2.0/forecast/daily";
 const weatherForecastCurrentURL = "http://api.weatherbit.io/v2.0/current";
 const pixabayURL = "https://pixabay.com/api";
-const positionKey = process.env.POSITION_STACK_API_KEY;
+const geonameUsername = process.env.GEONAMES_USERNAME
 const weatherKey = process.env.WEATHER_API_KEY;
 const pixabayKey = process.env.PIXABAY_API_KEY;
 
@@ -49,14 +49,14 @@ app.get("/", function (req, res) {
 // API: Get position of place
 app.get("/getPositionData", (req, res) => {
   const query = req.query.city;
-  const url = new URL(positionURL);
-  url.searchParams.set("access_key", positionKey);
-  url.searchParams.set("query", query);
-  url.searchParams.set("limit", 1);
+  const url = new URL(geonameURL);
+  url.searchParams.set("username", geonameUsername);
+  url.searchParams.set("q", query);
+  url.searchParams.set("maxRows", 1);
 
   request(url.href, (error, response, body) => {
     try {
-      const r = JSON.parse(body).data[0];
+      const r = JSON.parse(body).geonames[0];
       res.status(200).send(r);
     } catch (e) {
       console.log("error in /getPositionData:", e);
