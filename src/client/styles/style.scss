@@ -1,0 +1,28 @@
+@import "_variables";
+
+body {
+  background: $bg;
+  font-family: "Roboto Flex", sans-serif;
+  margin: 0;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 97vh;
+  color: $font;
+  font-size: 20px;
+  margin: auto;
+}
+
+.entry {
+  background: rgba(59, 74, 107, 0.4);
+}
+
+.headline {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 2rem;
+  padding: 10px 0;
+  border-bottom: 2px solid $secondary;
+}

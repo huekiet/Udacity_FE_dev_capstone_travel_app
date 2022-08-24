@@ -1,0 +1,28 @@
+@import "_variables";
+
+/* Reset style for HTML element on active to have no border*/
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+/* Style for Placeholder Text*/
+::placeholder {
+  /* Firefox, Chrome, Opera */
+  color: $primary;
+  opacity: 0.5;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: $primary;
+  opacity: 0.5;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #f0d43a;
+  opacity: 0.5;
+}

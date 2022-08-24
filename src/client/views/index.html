@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      charset="UTF-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>Weather Journal</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="holder headline">Travel App</div>
+      <form id="form">
+        <div class="start-date">
+          <label for="start_date">Select departure date</label>
+          <input type="date" id="start_date" />
+        </div>
+
+        <div class="end-date">
+          <label for="end_date">Enter end date</label>
+          <input type="date" id="end_date" />
+        </div>
+
+        <div class="holder city">
+          <label for="city">Enter a city name here</label>
+          <input
+            type="text"
+            id="city"
+            placeholder="Enter city name here"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="tool">
+          <button id="check" type="submit">Check</button>
+        </div>
+
+        <div class="holder info">
+          <p>Trip info</p>
+          <ul id="info">
+            <li>Trip countdown (days): <span id="count_down"></span></li>
+            <li>Trip duration (days): <span id="trip_duration"></span></li>
+            <li>Departure date temperature(C): <span id="temperature"></span></li>
+          </ul>
+        </div>
+
+        <div class="holder image">
+          <figcaption class="image-caption">Place image preview</figcaption>
+          <img class="place-image" alt="no image" id="preview_pic" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
